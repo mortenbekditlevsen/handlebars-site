@@ -10,11 +10,11 @@
       You can use the <code>if</code> helper to conditionally render a block. If
       its argument returns <code>false</code>, <code>undefined</code>, <code>null</code>,
       <code>""</code>, <code>0</code>, or <code>[]</code>, Handlebars will not
-      render the block.
+      render the block. 
     :html
       <div class="entry">
         {{#if author}}
-          <h1>{{firstName}} {{lastName}}</h1>
+          <h1>{{author.firstName}} {{author.lastName}}</h1>
         {{/if}}
       </div>
     .notes
@@ -23,6 +23,9 @@
     :html
       <div class="entry">
       </div>
+    .notes
+      Note that the context for the <code>if</code> section does not change. If a shift
+      in context is desired, please refer to the <code>with</code> block helper.
 
   .bullet
     .description
@@ -32,7 +35,7 @@
     :html
       <div class="entry">
         {{#if author}}
-          <h1>{{firstName}} {{lastName}}</h1>
+          <h1>{{author.firstName}} {{author.lastName}}</h1>
         {{else}}
           <h1>Unknown Author</h1>
         {{/if}}
@@ -148,7 +151,7 @@
       Will create a <code>key</code> and <code>value</code> variable that children may access without the need for depthed variable references. In the example above, <code>{{key}}</code> is identical to <code>{{@../key}}</code> but in many cases is more readable.
 
 %h2#with
-  The <code>with</code> Block Helper
+  The <code>with</code> block helper
 
 .content
   .bullet
